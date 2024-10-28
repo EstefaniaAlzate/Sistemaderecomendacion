@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    height: 85%;
+    max-width: 600px; /* Aumentar el ancho máximo del formulario */
+    width: 470px; /* Ancho fijo */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px; /* Centrar la imagen */
+    max-width: 150px; /* Tamaño de la imagen */
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex; /* Cambiar a flex para alinear label y input */
+    align-items: center; /* Centrar verticalmente */
+    margin-bottom: 15px;
+}
+
+label {
+    width: 20%; /* Ancho fijo para los labels */
+    margin-right: 5px; /* Espacio entre el label y el input */
+    color: #333;
+}
+
+input {
+    flex: 1; /* Dejar que el input ocupe el resto del espacio */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+input:focus {
+    border-color: #008000; /* Color verde */
+    outline: none;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-top: 20px; /* Espacio encima del botón */
+}
+
+.submit-button {
+    width: 50%; /* Ancho del botón */
+    padding: 10px;
+    background-color: #008000; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #005700; /* Un verde más oscuro al pasar el ratón */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .form-container {
+        margin: 20px; /* Reduce el margen en pantallas más pequeñas */
+    }
+
+    
+
+    .submit-button {
+        font-size: 14px; /* Ajusta el tamaño del botón */
+    }
+}
