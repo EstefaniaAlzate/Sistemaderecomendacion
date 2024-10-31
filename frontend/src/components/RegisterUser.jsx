@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
+import { showSuccessMessage } from "../components/Notifications";
+
 import '../styles/RegisterUser.css'; // Importar el archivo de estilos
+import { useRegisterUser } from '../hooks/useUser';
 
 const RegisterUser = () => {
+    const formRef = React.useRef();
     const [formData, setFormData] = useState({
-        nombre: '',
-        correo: '',
+        name: '',
+        email: '',
         id: '',
-        direccion: '',
-        telefono: '',
-        contraseña: ''
+        address: '',
+        phone: '',
+        password: '',
     });
+    const [dataSave, setDataSave] = useState();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Datos del formulario:', formData);
-        // Aquí puedes agregar la lógica para enviar los datos al servidor
+
+        // Agregar manualmente el rol de usuario
+        const dataToSubmit = { ...formData, role: "admin" };
+
+        let fetchData = await useRegisterUser(dataToSubmit);
+
+        setDataSave(fetchData);
     };
+
+    if (dataSave && dataSave !== "error") {
+        setTimeout(() => {
+            showSuccessMessage("Usuario registrado");
+        }, 800);
+    }
 
     return (
         <div className="form-container">
@@ -29,13 +48,13 @@ const RegisterUser = () => {
                 alt="Logo"
                 className="logo"
             />
-            <form onSubmit={handleSubmit} className="register-form">
+            <form onSubmit={handleSubmit} className="register-form" ref={formRef}>
                 <div className="form-group">
                     <label>Nombre:</label>
                     <input
                         type="text"
-                        name="nombre"
-                        value={formData.nombre}
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
                         required
                     />
@@ -44,8 +63,8 @@ const RegisterUser = () => {
                     <label>Correo:</label>
                     <input
                         type="email"
-                        name="correo"
-                        value={formData.correo}
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
                     />
@@ -64,8 +83,8 @@ const RegisterUser = () => {
                     <label>Dirección:</label>
                     <input
                         type="text"
-                        name="direccion"
-                        value={formData.direccion}
+                        name="address"
+                        value={formData.address}
                         onChange={handleChange}
                     />
                 </div>
@@ -73,8 +92,8 @@ const RegisterUser = () => {
                     <label>Teléfono:</label>
                     <input
                         type="tel"
-                        name="telefono"
-                        value={formData.telefono}
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
                     />
                 </div>
@@ -82,8 +101,8 @@ const RegisterUser = () => {
                     <label>Contraseña:</label>
                     <input
                         type="password"
-                        name="contraseña"
-                        value={formData.contraseña}
+                        name="password"
+                        value={formData.password}
                         onChange={handleChange}
                         required
                     />
