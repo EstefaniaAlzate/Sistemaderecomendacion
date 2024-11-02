@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 400px;
+    /* Ancho máximo del formulario */
+    width: 90%;
+    /* Ancho responsivo */
+    margin: 50px auto;
+    /* Centrar el formulario */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    /* Centrar la imagen */
+    max-width: 150px;
+    /* Tamaño de la imagen */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    /* Columna para el formulario */
+}
+
+.form-group {
+    display: flex;
+    /* Alinear label y input horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    margin-bottom: 15px;
+}
+
+label {
+    width: 30%;
+    /* Ancho fijo para el label */
+    color: #333;
+    margin-right: 10px;
+    /* Espacio entre label y input */
+}
+
+input {
+    flex: 1;
+    /* El input ocupa el espacio restante */
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #ddf9dd;
+    /* Color de fondo */
+    color: black;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho total */
+}
+
+input:focus {
+    border-color: #008000;
+    /* Color verde */
+    outline: none;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    margin-top: 20px;
+    /* Espacio encima del botón */
+}
+
+.submit-button {
+    width: 50%;
+    /* Ancho del botón */
+    padding: 10px;
+    background-color: #008000;
+    /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #005700;
+    /* Un verde más oscuro al pasar el ratón */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .form-container {
+        margin: 20px;
+        /* Reduce el margen en pantallas más pequeñas */
+    }
+
+    .submit-button {
+        font-size: 14px;
+        /* Ajusta el tamaño del botón */
+    }
+}

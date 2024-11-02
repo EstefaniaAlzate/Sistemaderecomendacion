@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import '../styles/LoginUser.css'; // Importar el archivo de estilos
 import { useLoginUser } from '../hooks/useUser.js'; // Asegúrate de que esta función esté definida correctamente
+import { showSuccessMessage } from "../components/Notifications"; // Importar notificaciones si es necesario
 
 const LoginUser = () => {
     const formRef = React.useRef();
-    const [dataSave, setDataSave] = useState();
+    const [dataSession, setDataSession] = useState();
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
 
         let fetchData = await useLoginUser(data);
-        setDataSave(fetchData);
+        setDataSession(fetchData);
     };
 
-    if (dataSave && dataSave !== "error") {
-        setTimeout(() => {
-            alert("Inicio de sesión exitoso");
-        }, 800);
-    }
+
 
     return (
         <div className="form-container">
@@ -34,6 +30,8 @@ const LoginUser = () => {
                     <input
                         type="text"
                         name="id"
+                        defaultValue={dataSession?.id}
+                        // onChange={handleChange}
                         required
                     />
                 </div>
@@ -42,6 +40,8 @@ const LoginUser = () => {
                     <input
                         type="password"
                         name="password"
+                        defaultValue={dataSession?.password}
+                        // onChange={handleChange}
                         required
                     />
                 </div>
