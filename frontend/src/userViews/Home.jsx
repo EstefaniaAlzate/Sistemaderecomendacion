@@ -2,8 +2,11 @@
 import React from 'react';
 import '../styles/Home.css';
 import InfoCard from '../components/InfoCard.jsx';
+import { useGetInventoryEntries } from '../hooks/useAcude.js';
 
 const Home = () => {
+    const { entries, loading } = useGetInventoryEntries();
+    console.log(entries)
     const sections = [
         { title: 'Sección 1', content: 'Contenido útil de la sección 1.' },
         { title: 'Sección 2', content: 'Contenido útil de la sección 2.' },
@@ -153,11 +156,12 @@ const Home = () => {
         }
     ];
 
+
     return (
         <div className="home-container">
             <h1>Bienvenido a la Página de Inicio</h1>
             <div className="info-cards">
-                {infoCards.map((card, index) => (
+                {entries.map((card, index) => (
                     <InfoCard
                         key={index}
                         title={card.title}

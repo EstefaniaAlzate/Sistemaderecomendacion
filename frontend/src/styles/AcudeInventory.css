@@ -1,4 +1,6 @@
+/* Estilo general para la tabla */
 .acude-inventory {
+  color: black;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
@@ -14,13 +16,25 @@
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
-  word-wrap: break-word; /* Permite que las palabras largas se rompan */
-  word-break: break-word; /* También asegura que las palabras largas se rompan si es necesario */
-  max-width: 250px; /* Limita el ancho máximo de las celdas */
-  overflow: hidden; /* Asegura que no haya desbordes visuales */
-  text-overflow: ellipsis; /* Muestra '...' al final del texto si es demasiado largo */
+  word-wrap: break-word;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Columna de horarios más ancha */
+.inventory-table td.schedule-column {
+  max-width: 600px;
+  /* Aumenta el tamaño de la columna para permitir más caracteres */
+  word-wrap: break-word;
+  /* Para que el texto no se desborde */
+  white-space: normal;
+  /* Permite que los elementos dentro del <td> se ajusten mejor */
+  overflow-wrap: break-word;
+  /* Asegura que el texto se rompa si es necesario */
+}
+
+/* Encabezados */
 .inventory-table th {
   background-color: #f2f2f2;
   font-weight: bold;
@@ -30,11 +44,18 @@
   background-color: #f9f9f9;
 }
 
+/* Estilo de las imágenes */
 .inventory-table img {
   border-radius: 5px;
   width: 50px;
   height: auto;
   max-width: 100%;
+}
+
+/* Botones de acción */
+.butons-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .edit-btn,
@@ -74,19 +95,57 @@
   cursor: not-allowed;
 }
 
-/* Para los enlaces */
+/* Estilo de los enlaces */
 .inventory-table a {
   word-break: break-word;
-  max-width: 200px; /* Limita el ancho de los enlaces */
+  max-width: 200px;
   display: block;
   overflow: hidden;
-  text-overflow: ellipsis; /* Muestra '...' en los enlaces largos */
+  text-overflow: ellipsis;
 }
 
-/* Estilo específico para la columna de horarios */
-.inventory-table td.schedule-column {
-  max-width: 350px;
-  word-wrap: break-word;
+/* Estilo específico para los horarios */
+.schedule-item a {
+  word-break: break-word;
+  max-width: 600px;
+  /* Aumenta el tamaño de los horarios */
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Para hacer la tabla más accesible y legible */
+.inventory-table td {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.inventory-table th {
+  font-size: 16px;
+  line-height: 1.5;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.inventory-table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.acude-inventory h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.schedule-item {
+  list-style-type: none;
+  margin-left: -50px;
+}
+
+#schedule-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 77% !important;
+  height: auto;
 }

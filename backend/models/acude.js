@@ -26,6 +26,7 @@ export const getAllInventoryEntries = async () => {
   try {
     const connection = await database.connect();
     const { rows } = await connection.query(query);
+    // console.log(rows)
     await connection.release();
     return rows;
   } catch (e) {

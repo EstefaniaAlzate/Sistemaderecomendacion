@@ -32,8 +32,12 @@ const InfoCard = ({ title, content, link, image, schedule = [] }) => { // Valor 
                                 <div className="schedule">
                                     <h4>Horarios:</h4>
                                     <ul>
-                                        {schedule.map((time, index) => (
-                                            <li key={index}>{time}</li>
+                                        {schedule.map((item, index) => (
+                                            <li className='schedule-list' key={index}>
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                    {item.time}
+                                                </a>
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>

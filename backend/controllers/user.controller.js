@@ -40,16 +40,12 @@ export const logUser = async (req, res) => {
 
   // Desencripta los datos antes de enviarlos
   const decryptedName = await decryptCrypto(loggedUser.name);
-  console.log("Nombre desencriptado:", decryptedName);
-  
+
   const decryptedEmail = await decryptCrypto(loggedUser.email);
-  console.log("Email desencriptado:", decryptedEmail);
-  
+
   const decryptedPhone = await decryptCrypto(loggedUser.phone);
-  console.log("Teléfono desencriptado:", decryptedPhone);
-  
+
   const decryptedAddress = await decryptCrypto(loggedUser.address);
-  console.log("Dirección desencriptada:", decryptedAddress);
 
   // Enviar todos los datos desencriptados del usuario
   return res.status(200).json({
@@ -70,7 +66,7 @@ export const getAdmins = async (req, res) => {
   try {
     // Obtener los administradores de la base de datos
     const admins = await getAllAdmins();
-    
+
     if (!admins) {
       return res.status(400).json({ message: "Error al obtener administradores" });
     }
@@ -82,7 +78,7 @@ export const getAdmins = async (req, res) => {
         const decryptedEmail = await decryptCrypto(admin.email);
         const decryptedPhone = await decryptCrypto(admin.phone);
         const decryptedAddress = await decryptCrypto(admin.address);
-        
+
         return {
           id: admin.id,
           name: decryptedName,
@@ -139,7 +135,7 @@ export const updateAdmin = async (req, res) => {
       phone,
       address,
     });
-    
+
     if (success) {
       return res.status(200).json({ message: "Administrador actualizado con éxito." });
     }

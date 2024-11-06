@@ -26,7 +26,6 @@ const AcudeInventory = () => {
       <table className="inventory-table">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Título</th>
             <th>Contenido</th>
             <th>Link</th>
@@ -38,34 +37,46 @@ const AcudeInventory = () => {
         <tbody>
           {entries.map((entry) => (
             <tr key={entry.id}>
-              <td>{entry.id}</td>
               <td>{entry.title}</td>
               <td>{entry.content}</td>
               <td><a href={entry.link} target="_blank" rel="noopener noreferrer">{entry.link}</a></td>
               <td><img src={entry.image} alt={entry.title} style={{ width: '50px', height: 'auto' }} /></td>
-              <td>{entry.schedule ? entry.schedule.join(', ') : 'No hay horarios'}</td>
+              <td id='schedule-container'>
+                {entry.schedule && entry.schedule.length > 0 ? (
+                  <ul>
+                    {entry.schedule.map((item, index) => (
+                      <li className='schedule-item' key={index}>
+                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                          {item.time}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  'No hay horarios'
+                )}
+              </td>
               <td>
-               <div className="butons-container">
-               <button 
-                  className="edit-btn" 
-                  onClick={() => handleEdit(entry.id)}
-                >
-                  <span className="material-symbols-outlined">edit</span>
-                </button>
-                <button 
-                  className="delete-btn" 
-                  onClick={() => handleDelete(entry.id)}
-                >
-                <span className="material-symbols-outlined">delete</span>
-                </button>
-               </div>
+                <div className="butons-container">
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEdit(entry.id)}
+                  >
+                    <span className="material-symbols-outlined">edit</span>
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(entry.id)}
+                  >
+                    <span className="material-symbols-outlined">delete</span>
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
       {/* Modal de éxito para la creación o eliminación (ejemplo) */}
-     
     </div>
   );
 };
