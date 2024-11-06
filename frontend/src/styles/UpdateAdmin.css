@@ -1,0 +1,40 @@
+/* UpdateAdmin.css */
+
+.update-admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos */
+    padding: 20px; /* Espaciado interno del formulario */
+    background-color: #f9f9f9; /* Color de fondo del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  }
+  
+  .update-admin-form input {
+    padding: 10px; /* Espacio interno en los campos de entrada */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+  }
+  
+  .update-admin-form input:focus {
+    border-color: #007bff; /* Color de borde en foco */
+    outline: none; /* Sin borde de enfoque adicional */
+  }
+  
+  .update-admin-form button {
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+  }
+  
+  .update-admin-form button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+  }
+  

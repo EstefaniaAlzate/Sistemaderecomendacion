@@ -1,0 +1,102 @@
+/* src/styles/AcudeInventory.css */
+
+.acude-inventory-form {
+    width: 50%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.acude-inventory-form div {
+    margin-bottom: 15px;
+}
+
+.acude-inventory-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.acude-inventory-form input[type="text"],
+.acude-inventory-form input[type="url"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.acude-inventory-form textarea {
+    resize: vertical;
+}
+
+.acude-inventory-form button[type="button"] {
+    padding: 8px 12px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.acude-inventory-form button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.acude-inventory-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.acude-inventory-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.acude-inventory-form .schedule-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 0;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.acude-inventory-form .schedule-list li {
+    padding: 5px;
+    font-size: 14px;
+    width: 50%;
+    color: #555;
+    background-color: #e9ecef;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.schedule-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-list li button {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
+    border: none;
+    padding: 0;
+}

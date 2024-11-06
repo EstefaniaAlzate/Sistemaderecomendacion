@@ -7,3 +7,11 @@ export const showSuccessMessage = (message) => {
         text: message,
     })
 }
+export const showErrorMessage = (message, error = null) => {
+    const errorMessage = error != null ? `\n ${error}` : ""
+    Swal.fire({
+        icon: "error",
+        title: "Ooops!",
+        text: message + errorMessage
+    })
+}

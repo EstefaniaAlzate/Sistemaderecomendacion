@@ -14,6 +14,7 @@ export const decryptCrypto = async (data) => {
     "sd56f238a1b496f35e729c0eef1c9f8b7657a4c8e5f3b0a2c9b8d3e6f7a2c5b9"
   );
   var originalText = bytes.toString(cryptojs.enc.Utf8);
+  // console.log("original text"  + originalText)
 
   return originalText;
 };

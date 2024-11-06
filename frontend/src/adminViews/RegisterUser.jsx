@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { showSuccessMessage } from "../components/Notifications";
-
 import '../styles/RegisterUser.css'; // Importar el archivo de estilos
 import { useRegisterUser } from '../hooks/useUser';
+import { useNavigate } from 'react-router';
 
 const RegisterUser = () => {
     const formRef = React.useRef();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -38,13 +39,14 @@ const RegisterUser = () => {
     if (dataSave && dataSave !== "error") {
         setTimeout(() => {
             showSuccessMessage("Usuario registrado");
+            navigate("/")
         }, 800);
     }
 
     return (
-        <div className="form-container">
+        <div className="register-form-container">
             <img
-                src="https://www.redttu.edu.co/es/wp-content/uploads/2015/12/16.-TDEA.png"
+                src="https://tdea.edu.co/images/tdea/logos/logo-tdea-nuevo.png"
                 alt="Logo"
                 className="logo"
             />

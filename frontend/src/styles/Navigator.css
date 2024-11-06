@@ -1,29 +1,32 @@
 .navigator {
-    width: 900px;
+    width: 100%; /* Se ajusta al 100% del contenedor */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
     height: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-content: center;
     align-items: center;
     background: linear-gradient(to right, rgba(0, 128, 0, 0.8), rgba(255, 255, 255, 0.2));
-    /* Degradado de verde a blanco claro */
     padding: 15px 30px;
     position: relative;
     z-index: 10;
 }
-
 .nav-logo {
-    margin: 40px;
+  position: relative;
     font-size: 24px;
-    color: #ffffff;
-    font-weight: bold;
     width: 80%;
+}
+.navigator-logo {
+    width: 17%;
+    position: relative;
+    
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     /* Espacio entre los enlaces */
 
 }
@@ -33,7 +36,7 @@
     /* Amarillo */
     color: #008000;
     /* Texto en verde */
-    padding: 10px 20px;
+    padding: 8px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -41,19 +44,19 @@
 }
 
 .nav-links button:hover {
+    position: relative;
     background-color: #64ca64 !important;
     /* Un tono más oscuro al pasar el mouse */
 }
 
 .nav-item {
     position: relative;
+    margin: auto 6px;
 }
 
 .nav-link {
     text-decoration: none;
-
-    padding: 10px 15px;
-    border-radius: 5px;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 

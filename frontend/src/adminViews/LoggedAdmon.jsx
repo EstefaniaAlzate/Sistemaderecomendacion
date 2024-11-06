@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/LoggedAdmin.css';
 
-const LoggedAdmin = () => {
+const LoggedAdmon = () => {
   const userData = JSON.parse(localStorage.getItem('userData'));
 
   return (
@@ -32,4 +32,4 @@ const LoggedAdmin = () => {
   );
 };
 
-export default LoggedAdmin;
+export default LoggedAdmon;

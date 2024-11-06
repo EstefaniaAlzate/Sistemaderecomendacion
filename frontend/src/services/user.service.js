@@ -12,7 +12,6 @@ export const registerUser = async (data) => {
     if (!response.ok) {
       throw new Error(`Error en la peticion: ${response.status}`);
     }
-    console.log("hola", response);
     const jsonData = await response.json();
 
     return jsonData;
@@ -22,51 +21,91 @@ export const registerUser = async (data) => {
   }
 };
 
-// Función para iniciar sesión
-export const loginUser = async (credentials) => {
+export const loginUser = async (data) => {
   try {
-    const response = await fetch(backUrl + "/login_user", {
+    const response = await fetch(`${backUrl}/login_user`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(credentials),
+      body: JSON.stringify(data)
     });
 
     if (!response.ok) {
       throw new Error(`Error en la petición: ${response.status}`);
     }
-    console.log("Inicio de sesión exitoso", response);
-    const jsonData = await response.json();
 
+    const jsonData = await response.json();
     return jsonData;
   } catch (e) {
     console.error(e);
+    return "error";
+  }
+};
+
+//servicio donde estamos llamando a la api de la base de datos para traer los usuarios
+export const getAdmins = async () => {
+  try {
+    const response = await fetch(`${backUrl}/get_admins`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error en la petición: ${response.status}`);
+    }
+
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (e) {
+    console.error("Error al obtener administradores:", e);
     return null;
   }
 };
-// export const logUser = async (data) => {
 
-//   try {
-//     const response = await fetch(backUrl + "/login_user", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(data)
-//     })
+//poder eliminar un administrador
+export const deleteAdmin = async (id) => {
+  try {
+    const response = await fetch(`${backUrl}/delete_admin/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//     if (!response.ok) {
-//       throw new Error(`Error en la peticion: ${response.status}`)
-//     }
+    if (!response.ok) {
+      throw new Error(`Error en la petición: ${response.status}`);
+    }
 
-//     const jsonData = await response.json()
-//     console.log(jsonData.response)
+    return true; // Retorna true si la eliminación fue exitosa
+  } catch (error) {
+    console.error("Error al eliminar administrador:", error);
+    return null; // En caso de error, retornar null
+  }
+};
 
-//     return jsonData
-//   } catch (e) {
-//     console.error(e)
-//     return null
-//   }
+//servicio para actualizar
 
-// }
+export const updateAdmin = async (data) => {
+  try {
+    const response = await fetch(`${backUrl}/update_admin/${data.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error en la petición: ${response.status}`);
+    }
+
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (e) {
+    console.error("Error al actualizar administrador:", e);
+    return null;
+  }
+};

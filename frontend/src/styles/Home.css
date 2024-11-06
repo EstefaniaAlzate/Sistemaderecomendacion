@@ -1,3 +1,4 @@
+/* src/styles/Home.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -29,48 +30,6 @@ h2.section-title {
     justify-content: space-evenly;
 }
 
-.card {
-    text-align: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 15px;
-    flex: 1 1 calc(25% - 20px);
-    box-sizing: border-box;
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-
-    /* Alinear al inicio */
-}
-
-.card:hover {
-    transform: translateY(-3px);
-}
-
-.card-image {
-    width: 100%;
-    /* Ancho completo */
-    max-width: 100px;
-    /* Tamaño máximo de la imagen */
-    height: auto;
-    /* Mantener la relación de aspecto */
-    margin-bottom: 10px;
-    /* Espacio debajo de la imagen */
-}
-
-.card h2 {
-    color: #008000;
-    margin: 0 0 5px;
-    /* Reducir margen debajo del título */
-}
-
-.card p {
-    color: #555;
-}
-
 .info-sections {
     display: flex;
     flex-wrap: wrap;
@@ -83,15 +42,13 @@ h2.section-title {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 15px;
-    flex: 1 1 calc(50% - 20px);
-    /* 2 sections in a row */
+    flex: 1 1 calc(50% - 20px); /* 2 sections in a row */
     box-sizing: border-box;
 }
 
 .section h3 {
     color: #008000;
-    margin: 0 0 5px;
-    /* Reducir margen debajo del título de la sección */
+    margin: 0 0 5px; /* Reducir margen debajo del título de la sección */
 }
 
 .section p {
@@ -101,19 +58,16 @@ h2.section-title {
 /* Estilos responsivos */
 @media (max-width: 900px) {
     .card {
-        flex: 1 1 calc(33.33% - 20px);
-        /* 3 cards in a row */
+        flex: 1 1 calc(33.33% - 20px); /* 3 cards in a row */
     }
 
     .section {
-        flex: 1 1 calc(100% - 20px);
-        /* 1 section in a row on smaller screens */
+        flex: 1 1 calc(100% - 20px); /* 1 section in a row on smaller screens */
     }
 }
 
 @media (max-width: 600px) {
     .card {
-        flex: 1 1 calc(100% - 20px);
-        /* 1 card in a row */
+        flex: 1 1 calc(100% - 20px); /* 1 card in a row */
     }
 }

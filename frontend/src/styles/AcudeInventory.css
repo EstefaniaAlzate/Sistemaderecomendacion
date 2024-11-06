@@ -1,0 +1,92 @@
+.acude-inventory {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word; /* Permite que las palabras largas se rompan */
+  word-break: break-word; /* También asegura que las palabras largas se rompan si es necesario */
+  max-width: 250px; /* Limita el ancho máximo de las celdas */
+  overflow: hidden; /* Asegura que no haya desbordes visuales */
+  text-overflow: ellipsis; /* Muestra '...' al final del texto si es demasiado largo */
+}
+
+.inventory-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.inventory-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.inventory-table img {
+  border-radius: 5px;
+  width: 50px;
+  height: auto;
+  max-width: 100%;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+}
+
+.inventory-table td button {
+  transition: background-color 0.3s ease;
+}
+
+.inventory-table td button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Para los enlaces */
+.inventory-table a {
+  word-break: break-word;
+  max-width: 200px; /* Limita el ancho de los enlaces */
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Muestra '...' en los enlaces largos */
+}
+
+/* Estilo específico para la columna de horarios */
+.inventory-table td.schedule-column {
+  max-width: 350px;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
