@@ -5,8 +5,9 @@ import InfoCard from '../components/InfoCard.jsx';
 import { useGetInventoryEntries } from '../hooks/useAcude.js';
 
 const Home = () => {
+    // localStorage.removeItem("surveyAnswers")
+    
     const { entries, loading } = useGetInventoryEntries();
-    console.log(entries)
     const sections = [
         { title: 'Sección 1', content: 'Contenido útil de la sección 1.' },
         { title: 'Sección 2', content: 'Contenido útil de la sección 2.' },

@@ -1,4 +1,4 @@
-/* src/styles/AcudeInventory.css */
+/* src/styles/AcudeRegister.css */
 
 .acude-inventory-form {
     width: 50%;
@@ -16,66 +16,45 @@
 }
 
 .acude-inventory-form label {
-    display: block;
     font-weight: bold;
-    margin-bottom: 5px;
     color: #333;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .acude-inventory-form input[type="text"],
-.acude-inventory-form input[type="url"] {
+.acude-inventory-form input[type="url"],
+.acude-inventory-form select {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #ced4da;
     border-radius: 4px;
-    box-sizing: border-box;
+    font-size: 14px;
+    color: #495057;
+    background-color: #ddf9dd;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-.acude-inventory-form textarea {
-    resize: vertical;
+.acude-inventory-form input[type="text"]:focus,
+.acude-inventory-form input[type="url"]:focus,
+.acude-inventory-form select:focus {
+    border-color: #008000;
+    background-color: #ddf9dd;
 }
-
-.acude-inventory-form button[type="button"] {
-    padding: 8px 12px;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 4px;
+.schedule-list li button {
+    color: red;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.acude-inventory-form button[type="button"]:hover {
-    background-color: #0056b3;
-}
-
-.acude-inventory-form button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    color: white;
-    background-color: #28a745;
+    font-weight: bold;
+    background: none;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.acude-inventory-form button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-.acude-inventory-form .schedule-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
     padding: 0;
-    justify-content: center;
-    list-style-type: none;
 }
-
+.schedule-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 .acude-inventory-form .schedule-list li {
     padding: 5px;
     font-size: 14px;
@@ -92,11 +71,71 @@
     align-items: center;
 }
 
-.schedule-list li button {
-    color: red;
-    cursor: pointer;
-    font-weight: bold;
-    background: none;
+.schedule-input input {
+    flex: 1;
+    background-color: #ddf9dd;
+}
+.add-schedule {
+    background-color: #28a745;
+    color: #fff;
     border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+
+.add-schedule:hover {
+    background-color: #0056b3;
+}
+
+.schedule-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
     padding: 0;
+    margin: 10px 0;
+}
+
+.schedule-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.schedule-list a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.schedule-list a:hover {
+    text-decoration: underline;
+}
+
+.remove-schedule {
+    color: #dc3545;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
 }

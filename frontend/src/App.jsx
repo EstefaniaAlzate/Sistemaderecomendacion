@@ -2,7 +2,6 @@ import "./App.css";
 import Navigator from "./components/Navigator.jsx";
 import Home from "./userViews/Home.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginUser from "./adminViews/LoginUser.jsx";
 import LoggedAdmin from "./adminViews/LoggedAdmin.jsx";
 import LoggedAdmon from "./adminViews/LoggedAdmon.jsx"; // Importa la vista de admon
 import AdminInventory from "./adminViews/AdminInventory.jsx"; // Importa la vista del inventario
@@ -10,7 +9,8 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RegisterUser from "./adminViews/RegisterUser.jsx";
 import AcudeRegister from "./adminViews/AcudeRegister.jsx";
 import AcudeInventory from "./adminViews/AcudeInventory.jsx";
-
+import RecommendationSystem from "./components/Recommendations.jsx";
+// import Recommendations from "./components/Recommendations.jsx";
 function App() {
     return (
         <Router>
@@ -19,6 +19,8 @@ function App() {
           </div>
             <Routes>
                 <Route path="/" element={<Home />} />
+                {/* <Route path="/recommendations" element={<Recommendations />} />  */}
+                <Route path="/recommendations" element={<RecommendationSystem />} />
                 <Route
                     path="/acudeRegister"
                     element={

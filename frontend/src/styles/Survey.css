@@ -1,0 +1,94 @@
+/* src/styles/Survey.css */
+
+.survey-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.survey-title {
+  text-align: center;
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  background-color: #f0f0f0;
+}
+
+/* Estilo cuando está seleccionado */
+.option-input:checked + .option-text {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.option-input {
+  display: none;
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.option-text {
+  font-size: 1em;
+  color: #444;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Hover para botones sin seleccionar */
+.option-label:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button {
+  display: block;
+  width: 50% !important;
+  padding: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #008000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.submit-button:hover {
+  background-color: #005700;
+}

@@ -14,6 +14,7 @@ const Navigator = () => {
         if (userData) {
             setIsAuthenticated(true);
         }
+
     }, []);
 
     const handleLoginSuccess = (route) => {
@@ -36,6 +37,13 @@ const Navigator = () => {
             action: () => navigate('/'),
             value: "inicio",
         },
+         {
+             name: <span class="material-symbols-outlined">
+             description
+            </span>,
+             action: () => navigate('/recommendations'),
+             value: "Encuesta",
+         },
         {
             name: isAuthenticated ? (
                 <span className="material-symbols-outlined">logout</span>
@@ -74,7 +82,7 @@ const Navigator = () => {
             },
             {
                 name: <span class="material-symbols-outlined">
-                inventory
+                inventory_2
                 </span>,
                 action: () => navigate('/acudeInventory'), // Nueva ruta para el inventario
                 value: "Acudes"

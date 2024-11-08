@@ -1,0 +1,61 @@
+/* styles/UpdateAcude.css */
+
+.update-acude-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-acude-form input , .update-acude-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .update-acude-form input:focus,
+  .update-acude-form textarea:focus, .update-acude-form select  {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+
+  
+  .update-acude-form .schedule-item {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .update-acude-form .schedule-item input {
+    flex: 1;
+  }
+  
+  .update-acude-form button[type="submit"] {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-acude-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos adicionales para el modal */
+  .update-acude-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+  }
+  

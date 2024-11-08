@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "../styles/AcudeRegister.css";
 import { useRegisterInventory } from '../hooks/useAcude.js';
-import { ModalForm } from '../components/Modal.jsx'; // Importar el componente ModalForm
-import { useNavigate } from 'react-router-dom'; // Importar el hook useNavigate
+import { ModalForm } from '../components/Modal.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const AcudeRegister = () => {
   const [formData, setFormData] = useState({
@@ -10,34 +10,31 @@ const AcudeRegister = () => {
     content: '',
     link: 'https://www.tdea.edu.co/index.php/informate/medios-tdea/valla-virtual/4688-acude-2024-2',
     image: '',
-    schedule: []  // Aquí se almacenarán los horarios y links
+    schedule: [],
+    category: '',
   });
-  const [tempSchedule, setTempSchedule] = useState(''); // Almacena el horario temporalmente
-  const [tempLink, setTempLink] = useState(''); // Almacena el enlace temporalmente para cada horario
-  const [response, setResponse] = useState(null); // Para manejar la respuesta del servidor
-  const [showModal, setShowModal] = useState(false); // Controla si el modal se debe mostrar
-  const [modalContent, setModalContent] = useState(''); // El contenido dinámico del modal
-  const navigate = useNavigate(); // Hook para la redirección
+  const [tempSchedule, setTempSchedule] = useState('');
+  const [tempLink, setTempLink] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+  const navigate = useNavigate();
 
-  // Maneja el cambio en los inputs del formulario
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Añade un horario y su enlace al arreglo de horarios
   const addSchedule = () => {
     if (tempSchedule && tempLink) {
       setFormData({
         ...formData,
         schedule: [...formData.schedule, { time: tempSchedule, link: tempLink }]
       });
-      setTempSchedule(''); // Limpia el input temporal de horario
-      setTempLink(''); // Limpia el input temporal de enlace
+      setTempSchedule('');
+      setTempLink('');
     }
   };
 
-  // Elimina un horario del arreglo de horarios
   const removeSchedule = (index) => {
     const updatedSchedule = formData.schedule.filter((_, i) => i !== index);
     setFormData({
@@ -46,42 +43,71 @@ const AcudeRegister = () => {
     });
   };
 
-  // Maneja el envío del formulario
+  const generateWeights = (acudeData) => {
+    const weights = {
+      horario: 0,
+      modalidad: 0,
+      dependencies: 0
+    };
+
+    // Peso para horario
+    const scheduleCount = acudeData.schedule.length;
+    weights.horario = Math.min(scheduleCount * 0.2, 1).toFixed(2);
+
+    // Peso para modalidad
+    switch (acudeData.category.toLowerCase()) {
+      case 'deporte':
+        weights.modalidad = 0.8.toFixed(2);
+        break;
+      case 'cultura':
+        weights.modalidad = 0.6.toFixed(2);
+        break;
+      default:
+        weights.modalidad = 0.4.toFixed(2);
+    }
+
+    // Peso para dependencies
+    const contentLength = acudeData.content.length;
+    weights.dependencies = Math.min(contentLength / 300, 1).toFixed(2);
+
+    return weights;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación de los campos del formulario
-    if (!formData.title || !formData.content || !formData.link || !formData.image) {
+    if (!formData.title || !formData.content || !formData.link || !formData.image || !formData.category) {
       alert('Todos los campos son obligatorios. Por favor, complete todos los campos.');
-      return; // Evita el envío si algún campo está vacío
+      return;
     }
 
     if (formData.schedule.length === 0) {
       alert('Debe agregar al menos un horario.');
-      return; // Evita el envío si no se han agregado horarios
+      return;
     }
 
-    console.log('Formulario enviado:', formData);
+    const weights = generateWeights(formData);
+    const finalData = {
+      ...formData,
+      weights
+    };
 
-    // Usar el hook para registrar la entrada
-    const result = await useRegisterInventory(formData);
-    setResponse(result); // Guarda la respuesta del servidor
+    console.log('Formulario enviado:', finalData);
+
+    const result = await useRegisterInventory(finalData);
 
     if (result) {
-      // Mostrar el modal de éxito con ModalForm
       setModalContent('El inventario se ha registrado correctamente.');
       setShowModal(true);
 
-      // Redirigir a /acudeInventory después de un registro exitoso
       setTimeout(() => {
-        navigate('/acudeInventory'); // Redirige a la vista de AcudeInventory
-      }, 2000); // Espera 2 segundos antes de redirigir
+        navigate('/acudeInventory');
+      }, 2000);
     } else {
       alert('Hubo un error al registrar el inventario');
     }
   };
 
-  // Función para cerrar el modal
   const cerrarModal = () => {
     setShowModal(false);
   };
@@ -90,44 +116,56 @@ const AcudeRegister = () => {
     <>
       <form onSubmit={handleSubmit} className="acude-inventory-form">
         <div>
-          <label>Nombre:</label>
+          <label htmlFor="title">Nombre:</label>
           <input
             type="text"
+            id="title"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div>
-          <label>Contenido:</label>
+          <label htmlFor="content">Contenido:</label>
+         
           <input
             type="text"
+            id="content"
             name="content"
             value={formData.content}
             onChange={handleInputChange}
+            required
           />
         </div>
-        {/* <div>
-          <label>Link:</label>
+        <div>
+          <label htmlFor="image">Imagen URL:</label>
           <input
             type="url"
-            name="link"
-            value={formData.link}
-            onChange={handleInputChange}
-          />
-        </div> */}
-        <div>
-          <label>Imagen URL:</label>
-          <input
-            type="text"
+            id="image"
             name="image"
             value={formData.image}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div>
+          <label htmlFor="category">Categoría:</label>
+          <select
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Seleccione una categoría</option>
+            <option value="Deporte">Deporte</option>
+            <option value="Cultura">Cultura</option>
+          </select>
+        </div>
+        <div>
           <label>Horario:</label>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="schedule-input">
             <input
               type="text"
               value={tempSchedule}
@@ -139,9 +177,8 @@ const AcudeRegister = () => {
               value={tempLink}
               onChange={(e) => setTempLink(e.target.value)}
               placeholder="Agregar enlace"
-              style={{ marginLeft: '10px' }}
             />
-            <button type="button" onClick={addSchedule} style={{ marginLeft: '10px' }}>
+            <button type="button" onClick={addSchedule} className="add-schedule">
               +
             </button>
           </div>
@@ -155,7 +192,7 @@ const AcudeRegister = () => {
                 <button
                   type="button"
                   onClick={() => removeSchedule(index)}
-                  style={{ marginLeft: '10px', color: 'red', cursor: 'pointer', border: 'none', background: 'transparent' }}
+                  className="remove-schedule"
                 >
                   x
                 </button>
@@ -166,7 +203,6 @@ const AcudeRegister = () => {
         <button type="submit">Enviar</button>
       </form>
 
-      {/* Mostrar el modal de éxito si showModal es true */}
       {showModal && (
         <ModalForm
           CerrarModal={cerrarModal}

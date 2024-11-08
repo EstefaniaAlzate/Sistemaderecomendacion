@@ -139,13 +139,12 @@
 
 .schedule-item {
   list-style-type: none;
-  margin-left: -50px;
+  justify-content: baseline;
 }
-
-#schedule-container {
+#cambios {
+  margin-left: -25%;
+  list-style-type: none;
+}
+.buttons-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 77% !important;
-  height: auto;
 }

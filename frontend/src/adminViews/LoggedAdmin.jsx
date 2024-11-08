@@ -24,10 +24,38 @@ const LoggedAdmin = () => {
           <p><strong>Dirección:</strong> {userData ? userData.address : 'Dirección del Usuario'}</p>
         </div>
       </aside>
-      <main className="user-info">
-        <h1>Información del Usuario</h1>
-        {/* Agrega más contenido relevante */}
-      </main>
+      
+      <section className="manual-section">
+        <h2>Manual de Usuario</h2>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">home</span>
+          <p><strong>Inicio:</strong> Accede a la página principal de la aplicación.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">description</span>
+          <p><strong>Encuesta:</strong> Realiza una encuesta para recibir recomendaciones de actividades.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">supervisor_account</span>
+          <p><strong>Perfil:</strong> Visualiza tus datos personales y rol en la aplicación.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">inventory</span>
+          <p><strong>Lista de Administradores:</strong> Administra la lista de usuarios con permisos administrativos.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">person_add</span>
+          <p><strong>Registrar Usuario:</strong> Crea un nuevo usuario con permisos específicos.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">inventory_2</span>
+          <p><strong>Acudes:</strong> Accede al inventario de actividades.</p>
+        </div>
+        <div className="manual-item">
+          <span className="material-symbols-outlined">library_add</span>
+          <p><strong>Agregar Acude:</strong> Añade una nueva actividad o evento a la lista de acudes.</p>
+        </div>
+      </section>
     </div>
   );
 };
