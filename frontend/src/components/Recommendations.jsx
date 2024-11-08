@@ -9,7 +9,7 @@ const RecommendationSystem = () => {
   const { entries: acudes, loading } = useGetInventoryEntries();
 
   const calculateRecommendations = useCallback((answers) => {
-    console.log('Calculating recommendations with answers:', answers);
+    // console.log('Calculating recommendations with answers:', answers);
 
     if (acudes.length === 0) {
       console.log('No hay ACUDEs disponibles para recomendar');
@@ -86,16 +86,16 @@ const RecommendationSystem = () => {
         <Survey onSubmit={calculateRecommendations} />
       ) : (
         recommendations.length > 0 && (
-         <div>
-          <h2 className="text-xl font-semibold mb-4">Recomendaciones para ti:</h2>
-           <div >
-            <div className='recommendations-list'>
-              {recommendations.map(acude => (
-                <InfoCard key={acude.id} {...acude} />
-              ))}
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Recomendaciones para ti:</h2>
+            <div >
+              <div className='recommendations-list'>
+                {recommendations.map(acude => (
+                  <InfoCard key={acude.id} {...acude} />
+                ))}
+              </div>
             </div>
           </div>
-         </div>
         )
       )}
     </div>

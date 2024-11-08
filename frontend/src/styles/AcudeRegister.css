@@ -42,6 +42,7 @@
     border-color: #008000;
     background-color: #ddf9dd;
 }
+
 .schedule-list li button {
     color: red;
     cursor: pointer;
@@ -50,11 +51,13 @@
     border: none;
     padding: 0;
 }
+
 .schedule-input {
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
 .acude-inventory-form .schedule-list li {
     padding: 5px;
     font-size: 14px;
@@ -75,6 +78,7 @@
     flex: 1;
     background-color: #ddf9dd;
 }
+
 .add-schedule {
     background-color: #28a745;
     color: #fff;
@@ -93,6 +97,7 @@
 
 .schedule-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     list-style: none;
     padding: 0;
