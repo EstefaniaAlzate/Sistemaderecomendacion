@@ -9,7 +9,7 @@ const Survey = ({ onSubmit }) => {
 
   useEffect(() => {
     const shuffled = [...surveyQuestions].sort(() => 0.5 - Math.random());
-    setSelectedQuestions(shuffled.slice(0, 3));
+    setSelectedQuestions(shuffled.slice(0, 4));
   }, []);
 
   const handleChange = (questionId, answer, category) => {

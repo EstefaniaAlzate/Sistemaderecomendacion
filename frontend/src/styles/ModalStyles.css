@@ -18,6 +18,6 @@
 
 /* Estilos específicos para el modal del formulario */
 .swal2-popup.form-modal {
-    background-image: url("https://img.freepik.com/vector-gratis/fondo-iconos-universidad_23-2147762635.jpg?t=st=1730588131~exp=1730591731~hmac=4c792e300329141179638e55e080816e10e2597a579ee638fbcd20d3c5020066&w=740");
+    background-color: #afdbaf;
     color: #333; /* Color del texto para el modal del formulario */
 }

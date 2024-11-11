@@ -9,7 +9,7 @@ const Home = () => {
     
     const { entries, loading } = useGetInventoryEntries();
     const sections = [
-        { title: 'Sección 1', content: 'Contenido útil de la sección 1.' },
+        { title: '¿Qué es la cátedra ACUDE?', content: 'La Cátedra Acude (actividades culturales y/o deportivas) tiene como finalidad contribuir a formación integral de los estudiantes a través de la creación de espacios de aprendizaje desarrollados por la Dirección de Bienestar.' },
         { title: 'Sección 2', content: 'Contenido útil de la sección 2.' },
         { title: 'Sección 3', content: 'Contenido útil de la sección 3.' },
         { title: 'Sección 4', content: 'Contenido útil de la sección 4.' },
